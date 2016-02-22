@@ -26,11 +26,11 @@ class SoupBot:
         else:
             self.channel_handlers[command] = function
 
-    def WriteMessage(self,msg):
-        self.Backend.write_message(msg)
+    def WriteMessage(self,msg,roomid):
+        self.Backend.write_message(msg,roomid)
 
-    def UploadImage(self,content,content_type):
-        self.Backend.write_image(content,content_type)
+    def UploadImage(self,content,content_type,roomid):
+        self.Backend.write_image(content,content_type,roomid)
 
     def RunServer(self):
         while self.ShouldRun:
@@ -49,7 +49,7 @@ sBot = SoupBot(MatrixBackend())
 
 # Soup function
 def BringMeSoup(msg,match,soup):
-    soup.WriteMessage("🍜")
+    soup.WriteMessage("🍜",msg.RoomIndex)
 
 sBot.AddMessageHandler("Bring me soup",BringMeSoup)
 sBot.AddMessageHandler("Soup",BringMeSoup)

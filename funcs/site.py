@@ -8,11 +8,11 @@ def SiteTitle(msg,regex,soup):
         t = page.getheader("Content-Type")
         if(t.startswith("text")):
             sp = BeautifulSoup(page,"html.parser")
-            soup.WriteMessage("[Site] " + sp.title.string)
+            soup.WriteMessage("[Site] " + sp.title.string,msg.RoomIndex)
         elif(t.startswith("image")):
             print("Got image")
             data = page.read()
-            soup.UploadImage(data,t)
+            soup.UploadImage(data,t,msg.RoomIndex)
             print("Uploaded")
     except:
         pass# Oh well, probably a bad url

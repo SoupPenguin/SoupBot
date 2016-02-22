@@ -3,3 +3,4 @@ class SoupMessage:
     Message = None
     Time = None
     Backend = None
+    RoomIndex = -1
