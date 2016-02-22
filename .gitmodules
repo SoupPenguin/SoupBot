@@ -1,3 +1,0 @@
-[submodule "backends/matrix-python-sdk"]
-	path = backends/matrix-python-sdk
-	url = git@github.com:SoupPenguin/matrix-python-sdk.git
