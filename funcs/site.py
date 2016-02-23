@@ -14,15 +14,15 @@ def SiteTitle(msg,regex,soup):
         elif(t.startswith("image")):
             print("Got image")
             data = page.read()
-            print(msh.RoomIndex)
+            print(msg.RoomIndex)
             soup.UploadImage(data,t,msg.RoomIndex)
             print("Uploaded")
         elif(t.startswith("video/webm")):
             print("Got webm")
             data = page.read()
-            print(msh.RoomIndex)
+            print(msg.RoomIndex)
             soup.UploadVideo(data,t,msg.RoomIndex)
             print("Uploaded")
-
-    except:
+    except Exception as e:
+        print(e)
         pass# Oh well, probably a bad url
