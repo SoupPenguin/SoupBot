@@ -36,6 +36,11 @@ class MatrixBackend:
         width, height = im.size
         return self.__rooms[rid].send_image(url,len(content),content_type,width,height)
 
+    def write_video(self,content,content_type,rid):
+        url = self.__client.upload(content,content_type)
+        byt = BytesIO(content)
+        return self.__rooms[rid].send_video(url,len(content),content_type)
+
 
     def write_message(self,msg,rid):
         self.__rooms[rid].send_text(msg)

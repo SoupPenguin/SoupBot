@@ -32,6 +32,9 @@ class SoupBot:
     def UploadImage(self,content,content_type,roomid):
         self.Backend.write_image(content,content_type,roomid)
 
+    def UploadVideo(self,content,content_type,roomid):
+        self.Backend.write_video(content,content_type,roomid)
+
     def RunServer(self):
         while self.ShouldRun:
             for evt in self.Backend.EventQueue:
